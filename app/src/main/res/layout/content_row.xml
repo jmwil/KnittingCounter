@@ -25,23 +25,24 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="110dp">
+            android:layout_height="110dp"
+            android:layout_weight=".175">
 
             <TextView
                 android:text=""
                 android:textSize="40sp"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/projectName"
-                android:layout_weight="1"
-                android:gravity="center"/>
+                android:layout_weight="48.93"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_weight="0.38"
+            android:layout_weight="0.25"
             android:layout_height="0dp">
 
             <TextView
@@ -57,7 +58,7 @@
             <TextView
                 android:text=""
                 android:textColor="@color/colorAccent"
-                android:textSize="60sp"
+                android:textSize="75sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rowNumber"
@@ -99,12 +100,6 @@
                 android:layout_width="50dp" />
 
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_weight="0.09"
-            android:layout_height="1dp" />
-
     </LinearLayout>
 
 </RelativeLayout>
