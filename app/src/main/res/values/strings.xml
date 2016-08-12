@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Row Counter</string>
+    <string name="create_sample_data">Create sample data</string>
+    <string name="delete_all_counters">Delete all counters</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="all_deleted">All counters deleted!</string>
+    <string name="title_activity_editor">EditorActivity</string>
+    <string name="new_project">Name Your Project</string>
+    <string name="title_activity_row">RowActivity</string>
+    <string name="projectname">ProjectName</string>
+    <string name="current_row">Currently knitting row:</string>
+    <string name="rows_updated">Rows updated!</string>
+    <string name="action_delete">Delete</string>
+    <string name="count_those_rows">Count those rows!</string>
+    <string name="counter_deleted">Counter deleted!</string>
+</resources>
