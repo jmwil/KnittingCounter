@@ -7,6 +7,7 @@
 
     <ImageView
         android:id="@+id/imageKnitIcon"
+        android:contentDescription="@string/knitting_icon"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:src="@mipmap/ic_launcher" />
@@ -20,8 +21,7 @@
         android:layout_margin="4dp"
         android:layout_toEndOf="@+id/imageKnitIcon"
         android:layout_toRightOf="@+id/imageKnitIcon"
-        android:singleLine="true"
-        android:text="Dummy Text"
+        android:maxLines="1"
         android:textColor="@color/colorPrimaryText"
         android:textSize="18sp" />
 

@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,7 +58,6 @@ implements LoaderManager.LoaderCallbacks<Cursor> {
         values.put(DBOpenHelper.COUNTER_NAME, counterName);
         Uri counterUri = getContentResolver().insert(CounterProvider.CONTENT_URI,
                 values);
-        Log.d("MainActivity", "Inserted counter " + counterUri.getLastPathSegment());
     }
 
     @Override
@@ -74,9 +72,7 @@ implements LoaderManager.LoaderCallbacks<Cursor> {
         int id = item.getItemId();
 
         switch (id) {
-/*            case R.id.action_create_sample:  Don't need this in production!
-                insertSampleData();
-                break;*/
+
             case R.id.action_delete_all:
                 deleteAllCounters();
                 break;
@@ -113,12 +109,12 @@ implements LoaderManager.LoaderCallbacks<Cursor> {
                 .show();
     }
 
-    private void insertSampleData() {
+/*    private void insertSampleData() {             // Don't need this in production!
         insertCounter("Simple Hat");
         insertCounter("Multi-line\nproject title");
         insertCounter("Very long title with tons of text that exceeds the width of the screen and is too big to function");
         restartLoader();
-    }
+    }*/
 
     private void restartLoader() {
         getLoaderManager().restartLoader(0, null, this);
