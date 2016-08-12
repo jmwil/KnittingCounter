@@ -46,18 +46,17 @@ public class RowActivity extends AppCompatActivity implements View.OnClickListen
         addButton.setOnClickListener(this);
         //row = 0;
 
-        rowNumber.setTextSize(TypedValue.COMPLEX_UNIT_SP, 60);
+        Intent intent = getIntent();
 
+        Uri uri = intent.getParcelableExtra(CounterProvider.CONTENT_ITEM_TYPE);
 
-        Uri uri = getIntent().getParcelableExtra(CounterProvider.CONTENT_ITEM_TYPE);
-
-        if (uri == null) {
+        if (uri == null) { // need to descend by 1 in an order by clause
             action = Intent.ACTION_INSERT;
-            setTitle("New Project");
-        } else if () {
+            setTitle(getString(R.string.new_project));
 
         } else {
             action = Intent.ACTION_EDIT;
+            setTitle(getString(R.string.count_those_rows));
             nameFilter = DBOpenHelper.COUNTER_ID + "=" + uri.getLastPathSegment(); // Query where clause
 
             Cursor cursor = getContentResolver().query(uri,
@@ -163,6 +162,7 @@ public class RowActivity extends AppCompatActivity implements View.OnClickListen
                     @Override
                     public void onClick(DialogInterface dialog, int button) {
                         if (button == DialogInterface.BUTTON_POSITIVE) {
+                            //Insert Data management code here
 
                             getContentResolver().delete(
                                     CounterProvider.CONTENT_URI, nameFilter, null

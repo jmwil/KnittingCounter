@@ -77,4 +77,5 @@ public class CounterProvider extends ContentProvider{
         return database.update(DBOpenHelper.TABLE_COUNTER,
                 values, selection, selectionArgs);
     }
+
 }

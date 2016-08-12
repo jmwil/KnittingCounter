@@ -40,7 +40,6 @@ public class EditorActivity extends AppCompatActivity {
             action = Intent.ACTION_INSERT;
             setTitle(getString(R.string.new_project));
         }
-
     }
 
     @Override
@@ -65,6 +64,8 @@ public class EditorActivity extends AppCompatActivity {
                     setResult (RESULT_CANCELED);
                 } else {
                     insertCounter(projectName);
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivityForResult(intent, ROW_REQUEST_CODE);
                 }
         }
         finish();
@@ -81,19 +82,17 @@ public class EditorActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED);
+        finish();
     }
 
 
     public void cancelProject(View view) {
-        setResult(RESULT_CANCELED);
-        Intent intent = new Intent(this, MainActivity.class);
+        onBackPressed();
+        finish();
     }
 
     public void openRowActivityForNewCounter(View view) {
         finishEditing();
-        Intent intent = new Intent(this, RowActivity.class);
-        startActivityForResult(intent, ROW_REQUEST_CODE);
         }
-
 }
 

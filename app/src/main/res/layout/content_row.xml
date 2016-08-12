@@ -29,6 +29,8 @@
 
             <TextView
                 android:text=""
+                android:textSize="40sp"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/projectName"
@@ -44,14 +46,18 @@
 
             <TextView
                 android:text="@string/current_row"
+                android:textSize="20sp"
+                android:textAlignment="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rowText"
-                android:layout_weight="1"
+                android:layout_weight="0.11"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="60sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/rowNumber"
@@ -63,7 +69,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="134dp">
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fabSubract"
@@ -75,6 +81,11 @@
                 app:srcCompat="@drawable/ic_action_subtract"
                 android:layout_weight="1"
                 android:layout_width="50dp" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.36" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fabAdd"

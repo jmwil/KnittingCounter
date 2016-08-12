@@ -22,8 +22,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-implements LoaderManager.LoaderCallbacks<Cursor>
-{
+implements LoaderManager.LoaderCallbacks<Cursor> {
     private static final int EDITOR_REQUEST_CODE = 1001;
     private static final int ROW_REQUEST_CODE = 1002;
     private CursorAdapter cursorAdapter;
@@ -35,8 +34,6 @@ implements LoaderManager.LoaderCallbacks<Cursor>
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        restartLoader();
 
         cursorAdapter = new CounterCursorAdapter(this, null, 0);
 
@@ -52,6 +49,8 @@ implements LoaderManager.LoaderCallbacks<Cursor>
                 startActivityForResult(intent, ROW_REQUEST_CODE);
             }
         });
+
+        getLoaderManager().initLoader(0, null, this);
 
     }
 
@@ -75,9 +74,9 @@ implements LoaderManager.LoaderCallbacks<Cursor>
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.action_create_sample:
+/*            case R.id.action_create_sample:  Don't need this in production!
                 insertSampleData();
-                break;
+                break;*/
             case R.id.action_delete_all:
                 deleteAllCounters();
                 break;
@@ -116,7 +115,7 @@ implements LoaderManager.LoaderCallbacks<Cursor>
 
     private void insertSampleData() {
         insertCounter("Simple Hat");
-        insertCounter("Multi-line\nnote");
+        insertCounter("Multi-line\nproject title");
         insertCounter("Very long title with tons of text that exceeds the width of the screen and is too big to function");
         restartLoader();
     }
@@ -128,7 +127,7 @@ implements LoaderManager.LoaderCallbacks<Cursor>
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(this, CounterProvider.CONTENT_URI,
-        null, null, null, null);
+                null, null, null, null);
     }
 
     @Override
@@ -148,7 +147,7 @@ implements LoaderManager.LoaderCallbacks<Cursor>
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == EDITOR_REQUEST_CODE && resultCode == RESULT_OK) {
+        if ((requestCode == EDITOR_REQUEST_CODE || requestCode == ROW_REQUEST_CODE) && resultCode == RESULT_OK) {
             restartLoader();
         }
     }
